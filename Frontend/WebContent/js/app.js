@@ -25,6 +25,14 @@ app.config(function($routeProvider){
 		templateUrl:'views/joblist.html',
 		controller:'JobController'
 			})
+			.when('/addblog',{ //V to Contoller
+		templateUrl:'views/blogform.html',
+		controller:'BlogPostController'
+			})
+			.when('/allblogs',{ //V to Contoller
+				templateUrl:'views/bloglist.html',
+				controller:'BlogPostController'
+					})
 
 	.otherwise({templateUrl:'views/home.html'})
 })

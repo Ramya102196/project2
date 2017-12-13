@@ -3,11 +3,12 @@
  */
 app.controller('JobController',function($scope,JobService,$location){
 	$scope.showDetails=false
+	$scope.searchTxt=""
 	$scope.addJob=function(){
 		JobService.addJob($scope.job).then(
 				function(response){
 				alert('job details posted successfully')
-				$location.path('/home')
+				$location.path('/alljobs')
 				},function(response){
 					if(response.status == 401){
 						if(response.data.code == 6){//access denied
@@ -36,7 +37,7 @@ app.controller('JobController',function($scope,JobService,$location){
 			if(response.status==401)
 				{
 				$scope.error=response.data
-				$loction.path('/login')
+				$location.path('/login')
 				}
 		})
 	}

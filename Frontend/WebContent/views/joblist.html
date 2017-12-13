@@ -1,3 +1,4 @@
+Search<input type="text" ng-model="searchTxt" class="pull pull-right">
 <table class="table">
 <thead>
 <tr><th>Job Title</th>
@@ -6,7 +7,7 @@
 </tr>
 </thead>
 <tbody>
-<tr ng-repeat="job in jobs">
+<tr ng-repeat="job in jobs | filter:searchTxt">
 <td>
 <a href="" ng-click="getJob(job.id)">{{job.jobTitle}}</a>
 </td>
