@@ -1,0 +1,18 @@
+<h2>Blog Post Approval Form</h2>
+<div class="row">
+<div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<b>{{blogPost.blogTitle}}</b>
+<b>Created By:</b>{{blogPost.postedBy.firstname}}<br>
+<b>Created On:</b>{{blogPost.postedOn | date:'yyyy:MM:dd'}}<br>
+</div>
+<div class="panel-body">
+{{blogPost.blogContent}}
+</div>
+<b>Likes</b>{{blogPost.likes}}
+</div>
+<a></a>
+</div>
+</div>
+Blog Comments

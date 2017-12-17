@@ -1,4 +1,4 @@
-<form>
+<!-- <form>
 <span style="color:red">{{error.message}}</span>
 <pre>
 Enter username: <input type="text" ng-model="user.username">
@@ -8,4 +8,25 @@ Enter password: <input type="password" ng-model="user.password">
 
 
 </pre>
+</form> -->
+
+<div class="container">
+<span style="color:red">{{error.message}}</span>
+<form>
+<div class="form-group">
+Enter username 
+<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" required>
+</div>
+<div class="form-group">
+Enter password
+<input type="password" placeholder="Enter password" ng-model="user.password" class="form-control">
+</div>
+
+<div class="form-group">
+<button type="button" class="btn btn-info" ng-click="login()">Submit</button>
+<!-- <input type="submit" ng-click="login()" > -->
+
+
+</div>
 </form>
+</div>

@@ -29,9 +29,17 @@ app.config(function($routeProvider){
 		templateUrl:'views/blogform.html',
 		controller:'BlogPostController'
 			})
-			.when('/allblogs',{ //V to Contoller
+			.when('/getblogs',{ //V to Contoller
 				templateUrl:'views/bloglist.html',
 				controller:'BlogPostController'
+					})
+					.when('/admin/getblog/:id',{ 
+				templateUrl:'views/approvalform.html',
+				controller:'BlogPostDetailsController'
+					})
+					.when('/getblog/:id',{ 
+				templateUrl:'views/blogdetails.html',
+				controller:'BlogPostDetailsController'
 					})
 
 	.otherwise({templateUrl:'views/home.html'})

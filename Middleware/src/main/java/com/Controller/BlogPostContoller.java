@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dao.BlogPostDao;
@@ -69,5 +70,40 @@ public ResponseEntity<?> getBlogs(@PathVariable int approved,HttpSession session
 			List<BlogPost> blogPosts=blogPostDao.getBlogs(approved);
 	return new ResponseEntity<List<BlogPost>>(blogPosts,HttpStatus.OK);
 		
+}
+@RequestMapping(value="/getblog/{id}",method=RequestMethod.GET)
+public ResponseEntity<?> getBlogPost(@PathVariable int id,HttpSession session)
+{
+	String username=(String) session.getAttribute("username");
+	if(username==null)
+	{
+		ErrorClazz error=new ErrorClazz(5,"Unauthorized access");
+		return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED); //401
+		}
+	BlogPost blogPost=blogPostDao.getBlogById(id);
+	return new ResponseEntity<BlogPost>(blogPost,HttpStatus.OK);
+}
+@RequestMapping(value="/updateapprovalstatus",method=RequestMethod.PUT)
+public ResponseEntity<?> updateApprovalStatus(@RequestBody BlogPost blogPost,
+		   @RequestParam(required=false) String rejectionReason,HttpSession session)
+{
+	String username=(String) session.getAttribute("username");
+	if(username==null)
+	{
+		ErrorClazz error=new ErrorClazz(5,"Unauthorized access");
+		return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED); //401
+		}
+	try{
+		//if admin selects Approve, blogPost.approved=1
+		//if admin selects Rejects, blogPost.approved=0
+		blogPostDao.updateBlogPost(blogPost,rejectionReason);
+	}catch(Exception e)
+	{
+		ErrorClazz error=new ErrorClazz(7,"Unable to update blogpost approval status");
+		return new ResponseEntity<ErrorClazz>(error,HttpStatus.INTERNAL_SERVER_ERROR); //500
+	}
+	return new ResponseEntity<Void>(HttpStatus.OK);
+		
+
 }
 }
