@@ -1,7 +1,10 @@
+
+
 package com.dao;
 
 import java.util.List;
 
+import com.model.BlogComment;
 import com.model.BlogPost;
 
 public interface BlogPostDao {
@@ -12,4 +15,6 @@ void saveBlogPost(BlogPost blogpost);
 List<BlogPost> getBlogs(int approved); //values =0/1
 BlogPost getBlogById(int id);
 void updateBlogPost(BlogPost blogPost,String rejectionReason);
+void addComment(BlogComment blogComment);
 }
+

@@ -1,3 +1,6 @@
+
+
+
 package com.daoimpl;
 
 import java.util.List;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dao.BlogPostDao;
+import com.model.BlogComment;
 import com.model.BlogPost;
 import com.model.Notification;
 @Repository
@@ -59,8 +63,11 @@ public void updateBlogPost(BlogPost blogPost, String rejectionReason) {
 	//insert the details in notification table.[username,approvedstatus,rejectionreason,blogposition]
 	}
 }
+public void addComment(BlogComment blogComment) {
+	Session session=sessionFactory.getCurrentSession();
+	session.save(blogComment); //insert into blogcommentdetails
 
-
+}
 
 
 }

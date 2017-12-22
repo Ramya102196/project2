@@ -1,6 +1,8 @@
 /**
  *Blog Service 
  */
+
+
 app.factory('BlogService',function($http)
 		{
 	var blogService={}
@@ -24,7 +26,24 @@ app.factory('BlogService',function($http)
 		return $http.get(BASE_URL + "/getblog/" +id)
 	}
 	blogService.updateBlogPost=function(blogPost,rejectionReason){
+		if(rejectionReason==undefined)
+			return $http.put(BASE_URL + "/updateapprovalstatus?rejectionReason="+'Not Mentioned',blogPost)
+			else
 		return $http.put(BASE_URL + "/updateapprovalstatus?rejectionReason="+rejectionReason,blogPost)
 	}
+	blogService.userLikes=function(id)
+	{
+		return $http.get(BASE_URL + "/userLikes/"+id)
+	}
+	blogService.updateLikes=function(blogPost)
+	{
+		return $http.put(BASE_URL + "/updatelikes",blogPost);
+	}
+	blogService.addComment=function(commentText,id)
+	{
+		return $http.post(BASE_URL + "/addcomment?commentText="+commentText + '&id=' +id) 	
+	//"http://localhost:8085/Middleware/addcomment?commentText='good' &id=41
+		}
+	
 	return blogService;
 		})

@@ -69,4 +69,3 @@ UserService.logout().then(function(response){
 	
 
 
-

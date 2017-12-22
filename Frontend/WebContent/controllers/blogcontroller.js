@@ -1,6 +1,8 @@
 /**
  * BlogController
  */
+
+
 app.controller('BlogPostController',function($scope,BlogService,$location,$rootScope)
 		{
 	$scope.saveBlog=function(){
