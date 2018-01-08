@@ -1,0 +1,21 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th><b>FirstName</b></th>
+			<th><b>LastName</b></th>
+			<th><b>Image</b></th>
+			
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="friend in friends">
+			<td>{{friend.firstname}}</td>
+			<td>{{friend.lastname}}</td>
+			<td><img
+				src="http://localhost:8085/Middleware/getimage/{{friend.username}}"
+				alt="Image Not Available" height="40" width="40">
+			</td>
+		</tr>
+	</tbody>
+
+</table>

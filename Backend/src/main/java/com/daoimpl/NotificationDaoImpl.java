@@ -28,6 +28,18 @@ public class NotificationDaoImpl implements NotificationDao {
 	List<Notification> notifications=query.list();
 	return notifications;
 	}
+
+	public Notification updateNotification(int notificationId) 
+		{
+			Session session=sessionFactory.getCurrentSession();
+			Notification notification=(Notification)session.get(Notification.class,notificationId);
+	notification.setViewed(true);
+session.update(notification);
+return notification;
+	
+	}
+	
+	
 	
 	
 

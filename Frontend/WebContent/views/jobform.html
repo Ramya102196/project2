@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 {{error.message}}
 <form>
 <pre>
@@ -12,4 +12,62 @@ Enter Years Of Experience:<input type="text" ng-model="job.yrsOfExp">
 <input type="submit" value="Add Job" ng-click="addJob()">
 </pre>
 </form>
+</div> -->
+
+<div class="container">
+  <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+<form>
+<div class="form-group">
+Enter JobTitle
+<input type="text" placeholder="Enter jobtile" ng-model="job.jobTitle" class="form-control" required>
 </div>
+
+<div class="form-group">
+Enter JobDescription
+<!-- <textarea row="3" cols="16" placeholder="Enter jobdescription" ng-model="job.jobDescription"></textarea> -->
+ <textarea placeholder="Enter jobdescription" ng-model="job.jobDescription" class="form-control"></textarea> 
+</div>
+
+<div class="form-group">
+Enter Skills Required 
+<input type="text" placeholder="Enter skillsrequired" ng-model="job.skillsRequired" class="form-control">
+</div>
+
+<div class="form-group">
+Enter Location
+<input type="text" placeholder="Enter location" ng-model="job.location" class="form-control">
+</div>
+
+<div class="form-group">
+Enter CompanyName
+<input type="text" placeholder="Enter companyname" ng-model="job.companyname" class="form-control">
+
+</div>
+
+<div class="form-group">
+Enter Salary
+<input type="text" placeholder="Enter salary" ng-model="job.salary" class="form-control">
+</div>
+
+<div class="form-group">
+Enter YearOfExperience
+<input type="text" placeholder="Enter yearofExp" ng-model="job.yrsOfExp" class="form-control">
+</div>
+
+<div class="form-group">
+<!-- <input type="submit" value="Add Job" ng-click="addJob()"> -->
+ <button type="button" value="Add Job" class="btn btn-info" ng-click="addJob()">Submit</button>
+<!-- <input type="submit" ng-click="registerUser()" > -->
+</div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+ 

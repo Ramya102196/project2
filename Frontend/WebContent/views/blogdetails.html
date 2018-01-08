@@ -8,9 +8,13 @@
 <b>{{blogPost.blogTitle}}</b>
 <b>Created By:</b>{{blogPost.postedBy.firstname}}<br>
 <b>Created On:</b>{{blogPost.postedOn | date:'yyyy:MM:dd'}}<br>
+<img src="http://localhost:8085/Middleware/getimage/{{blogPost.postedBy.username}}" 
+alt="Image Not Available"
+height="40" width="40">
+
 </div>
-<div class="panel-body">
-{{blogPost.blogContent}}
+<div class="panel-body">{{blogPost.blogContent}}
+
 </div>
 <a></a>
 <br>

@@ -8,7 +8,7 @@ app.controller('UserController',function($scope,UserService,$location,$rootScope
 	if($rootScope.currentUser!=undefined) //fetch userdetails
 		{
 		UserService.getUser().then(function(response){
-			$scope.user=response.data  //Uuser obj
+			$scope.user=response.data  //user obj
 		},function(response)  //401,500
 		{
 			if(response.status==401)
