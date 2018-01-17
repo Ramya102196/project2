@@ -54,7 +54,7 @@ app.controller('BlogPostDetailsController',function($scope,$location,$routeParam
 			}
 			else
 			BlogService.addComment($scope.commentText,id).then(function(response){
-			alert('added sucessfully')	
+			alert('Sucessfully Added')	
 			$scope.commentText=''
 			$scope.blogPost=response.data //list of blog comments for the blogpost
 			},function(response){

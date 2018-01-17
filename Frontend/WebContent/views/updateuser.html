@@ -1,59 +1,40 @@
-<!-- <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
-<form>
+<h2><center> User Update Details Page</center></h2>
+<div class="container">
+<span style="color:red" ng-if="error.code==1">{{error.message}}</span>
 
-
-<pre>
-Enter Username : <input type="text" ng-model="user.username" disabled>
-<span style="color:red" ng-if="error.code==2">{{error.message}}</span>
-Enter Password : <input type="password" ng-model="user.password">
-Enter Firstname : <input type="text" ng-model="user.firstname">
-Enter Lastname: <input type="text" ng-model="user.lastname">
-Enter Email : <input type="email" ng-model="user.emailid">
-<span style="color:red" ng-if="error.code==3">{{error.message}}</span>
-Enter Phonenumber : <input type="text" ng-model="user.phonenumber">
-Select Role:
-<input type="radio" value="STUDENT" ng-model="user.role">Student
-<input type="radio" value="EMPLOYEE" ng-model="user.role">Employee
-<input type="radio" value="ALUMNI" ng-model="user.role">Alumni
-<input type="submit" value="Edit" ng-click="editUserProfile()"> 1
-</pre>
-</form>
- -->
-   
- 
- 
- <div class="container">
-  <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
-<form>
 <div class="form-group">
-Enter username 
-<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" required>
+Enter Username 
+<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" required >
+
 <span style="color:red" ng-if="error.code==2">{{error.message}}</span>
 </div>
 
 <div class="form-group">
-Enter password
+Enter Password
 <input type="password" placeholder="Enter password" ng-model="user.password" class="form-control">
 </div>
 
 <div class="form-group">
 Enter Firstname 
 <input type="text" placeholder="Enter firstname" ng-model="user.firstname" class="form-control">
+
 </div>
 
 <div class="form-group">
-Enter lastname 
+Enter Lastname 
 <input type="text" placeholder="Enter lastname" ng-model="user.lastname" class="form-control">
+
 </div>
 
 <div class="form-group">
-Enter email 
+Enter EmailId 
 <input type="email" placeholder="Enter email" ng-model="user.emailid" class="form-control">
+
 <span style="color:red" ng-if="error.code==3">{{error.message}}</span>
 </div>
 
 <div class="form-group">
-Enter phonenumber 
+Enter PhoneNumber 
 <input type="text" placeholder="Enter phonenumber" ng-model="user.phonenumber" class="form-control">
 </div>
 
@@ -68,6 +49,8 @@ Select Role:
 
 <!-- <input type="submit" ng-click="registerUser()" > -->
 </div>
+</form>
+
 </form>
 </div>
 

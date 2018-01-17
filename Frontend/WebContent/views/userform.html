@@ -1,35 +1,43 @@
+<h2><center>User Registration Page</center></h2>
 <div class="container">
   <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
+  <form name="myform" novalidate>
 <form>
 <div class="form-group">
-Enter username 
-<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" required>
+Enter UserName 
+<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" required ng-minlength="6">
+<span ng-show="myform.username.$touched && myform.username.$error.required">Username is required</span>
+<span ng-show="myform.username.$touched && myform.username.$error.minlength">Username must be atleast 6 character</span>
 <span style="color:red" ng-if="error.code==2">{{error.message}}</span>
 </div>
 
 <div class="form-group">
-Enter password
+Enter Password
 <input type="password" placeholder="Enter password" ng-model="user.password" class="form-control">
 </div>
 
 <div class="form-group">
-Enter Firstname 
+Enter FirstName 
 <input type="text" placeholder="Enter firstname" ng-model="user.firstname" class="form-control">
+<span ng-show="myform.firstname.$touched && myform.firstname.$error.required">Firstname is required</span>
 </div>
 
 <div class="form-group">
-Enter lastname 
+Enter LastName 
 <input type="text" placeholder="Enter lastname" ng-model="user.lastname" class="form-control">
+<span ng-show="myform.lastname.$touched && myform.lastname.$error.required">Lastname is required</span>
 </div>
 
 <div class="form-group">
-Enter email 
+Enter EmailId 
 <input type="email" placeholder="Enter email" ng-model="user.emailid" class="form-control">
+<span ng-show="myform.emailid.$dirty && myform.emailid.$error.required">Emailid is required</span>
+<span ng-show="myform.emailid.$dirty && myform.emailid.$error.emailid">Email should be a valid format</span>
 <span style="color:red" ng-if="error.code==3">{{error.message}}</span>
 </div>
 
 <div class="form-group">
-Enter phonenumber 
+Enter PhoneNumber 
 <input type="text" placeholder="Enter phonenumber" ng-model="user.phonenumber" class="form-control">
 </div>
 
@@ -43,6 +51,7 @@ Select Role:
  <button type="button" class="btn btn-info" ng-click="registerUser()">Submit</button>
 <!-- <input type="submit" ng-click="registerUser()" > -->
 </div>
+</form>
 </form>
 </div>
 
