@@ -1,13 +1,14 @@
 <h2><center>User Registration Page</center></h2>
 <div class="container">
   <span style="color:red" ng-if="error.code==1">{{error.message}}</span>
-  <form name="myform" novalidate>
-<form>
+  <form class="col-xs-12 col-sm-12 col-md-12" name="myform" novalidate>
+
 <div class="form-group">
 Enter UserName 
-<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" required ng-minlength="6">
-<span ng-show="myform.username.$touched && myform.username.$error.required">Username is required</span>
-<span ng-show="myform.username.$touched && myform.username.$error.minlength">Username must be atleast 6 character</span>
+<input type="text" placeholder="Enter username" ng-model="user.username" class="form-control" name="name"  required ng-minlength="4">
+
+<span ng-show="myform.name.$touched && myform.name.$error.required">Username is required</span>
+	  <span ng-show="myform.name.$touched && myform.name.$error.minlength">Username must be atleast 4 characters</span>
 <span style="color:red" ng-if="error.code==2">{{error.message}}</span>
 </div>
 
@@ -18,21 +19,25 @@ Enter Password
 
 <div class="form-group">
 Enter FirstName 
-<input type="text" placeholder="Enter firstname" ng-model="user.firstname" class="form-control">
-<span ng-show="myform.firstname.$touched && myform.firstname.$error.required">Firstname is required</span>
+<input type="text" placeholder="Enter firstname" ng-model="user.firstname" name="firstName" class="form-control">
+
+<span ng-show="myform.firstName.$touched && myform.firstName.$error.required">First Name is required</span>
+
 </div>
 
 <div class="form-group">
 Enter LastName 
-<input type="text" placeholder="Enter lastname" ng-model="user.lastname" class="form-control">
-<span ng-show="myform.lastname.$touched && myform.lastname.$error.required">Lastname is required</span>
+<input type="text" placeholder="Enter lastname" ng-model="user.lastname" name="lastName" class="form-control">
+
+<span ng-show="myform.lastName.$touched && myform.lastName.$error.required">Last Name is required</span>
 </div>
 
 <div class="form-group">
 Enter EmailId 
-<input type="email" placeholder="Enter email" ng-model="user.emailid" class="form-control">
-<span ng-show="myform.emailid.$dirty && myform.emailid.$error.required">Emailid is required</span>
-<span ng-show="myform.emailid.$dirty && myform.emailid.$error.emailid">Email should be a valid format</span>
+<input type="email" placeholder="Enter email" ng-model="user.emailid" name="email" class="form-control">
+
+<span ng-show="myform.email.$dirty && myform.email.$error.required">Email is required</span>
+      <span ng-show="myform.email.$dirty && myform.email.$error.email">Email Address is not in valid format</span>
 <span style="color:red" ng-if="error.code==3">{{error.message}}</span>
 </div>
 
@@ -48,7 +53,7 @@ Select Role:
 <input type="radio" ng-model="user.role" value="EMPLOYEE">Employee
 </div>
 <div class="form-group">
- <button type="button" class="btn btn-info" ng-click="registerUser()">Submit</button>
+ <button type="submit" class="btn btn-info" ng-click="registerUser()" >Submit</button>
 <!-- <input type="submit" ng-click="registerUser()" > -->
 </div>
 </form>
